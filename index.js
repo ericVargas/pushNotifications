@@ -10,10 +10,10 @@ app.use(bodyParser.json());
 // Set static path
 app.use(express.static(path.join(__dirname, 'client')));
 
-const pubicVapidKey = 'BFcaAtEZv4JqzMp49mcz4D7cmH0q-wRbNXGfPjMFgBDTZMbyvxcWWf3NHP2loI91sY2KtYyc0YDOapfHIJDyV-E';
+const publicVapidKey = 'BFcaAtEZv4JqzMp49mcz4D7cmH0q-wRbNXGfPjMFgBDTZMbyvxcWWf3NHP2loI91sY2KtYyc0YDOapfHIJDyV-E';
 const privateVapidKey = 'JAiDq1N5roReOABJDoM_ubNvQyBNE0UZSd4cjVbULB0';
 
-webpush.setVapidDetails('malto:test@test.com', pubicVapidKey, privateVapidKey);
+webpush.setVapidDetails('malto:test@test.com', publicVapidKey, privateVapidKey);
 
 // Subscribe Route
 app.post('/subscribe', (req, res) => {
