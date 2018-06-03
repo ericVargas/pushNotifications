@@ -7,6 +7,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
+// Set static path
+app.use(express.static(path.join(__dirname, 'client')));
+
 const pubicVapidKey = 'BFcaAtEZv4JqzMp49mcz4D7cmH0q-wRbNXGfPjMFgBDTZMbyvxcWWf3NHP2loI91sY2KtYyc0YDOapfHIJDyV-E';
 const privateVapidKey = 'JAiDq1N5roReOABJDoM_ubNvQyBNE0UZSd4cjVbULB0';
 
@@ -26,3 +29,7 @@ app.post('/subscribe', (req, res) => {
     // Pass object into sendNotification
     webpush.sendNotification(subscription, payload).catch(err => console.error(err));
 });
+
+const port = 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
