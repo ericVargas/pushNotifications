@@ -20,6 +20,18 @@ async function send() {
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
     });
+    console.log('Pushed Registered...');
+    
+    // Send Push Notification
+    console.log('Sending Push...');
+    await fetch('/subscribe', {
+        method: 'POST',
+        body: JSON.stringify(subscription),
+        headers: {
+            'content-type': 'application/json'
+        }
+    });
+    console.log('Push Sent...')
 }
 
 function urlBase64ToUint8Array(base64String) {
